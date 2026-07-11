@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+
+{% block title %}
+Commute History | Smart Commute & Traffic Planner
+{% endblock %}
+
+{% block content %}
+
+<div class="page-title">
+    <h1>📜 Commute History</h1>
+    <p>View all your previously planned journeys.</p>
+</div>
+
+<!-- ================= HISTORY ================= -->
+
+{% if history %}
+
+<table class="history-table">
+
+    <thead>
+
+        <tr>
+            <th>Date</th>
+            <th>Source</th>
+            <th>Destination</th>
+            <th>Distance</th>
+            <th>Travel Time</th>
+            <th>Fuel Cost</th>
+            <th>Actions</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        {% for trip in history %}
+
+        <tr>
+
+            <td>{{ trip.date }}</td>
+
+            <td>{{ trip.source }}</td>
+
+            <td>{{ trip.destination }}</td>
+
+            <td>{{ trip.distance }}</td>
+
+            <td>{{ trip.estimated_travel_time }}</td>
+
+            <td>₹ {{ trip.trip_cost }}</td>
+
+            <td>
+
+                <!-- Repeat Journey -->
+
+                <form action="{{ url_for('repeat_history') }}" method="POST" style="display:inline;">
+
+                    <input type="hidden" name="source" value="{{ trip.source }}">
+                    <input type="hidden" name="destination" value="{{ trip.destination }}">
+
+                    <input type="number"
+                        name="mileage"
+                        placeholder="Mileage (km/L)"
+                        step="0.1"
+                        required>
+
+                    <input type="number"
+                        name="fuel_price"
+                        placeholder="Fuel Price (₹/L)"
+                        step="0.1"
+                        required>
+
+                    <button type="submit" class="btn-small">
+                        🔄 Repeat
+                    </button>
+
+                </form>
+
+                <!-- Delete Journey -->
+
+                <form action="{{ url_for('delete_history') }}" method="POST" style="display:inline;">
+
+                    <input type="hidden" name="index" value="{{ loop.index0 }}">
+
+                    <button type="submit" class="btn-small delete-btn">
+                        🗑 Delete
+                    </button>
+
+                </form>
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% else %}
+
+<div class="card">
+
+    <h2>No Commute History Found</h2>
+
+    <p>
+        You haven't planned any journeys yet.
+    </p>
+
+    <a href="{{ url_for('home') }}" class="btn">
+        🚗 Plan Your First Journey
+    </a>
+
+</div>
+
+{% endif %}
+
+<!-- ================= QUICK ACTIONS ================= -->
+
+<div class="button-group">
+
+    <a href="{{ url_for('home') }}" class="btn">
+        🏠 Home
+    </a>
+
+    <a href="{{ url_for('dashboard') }}" class="btn">
+        📊 Dashboard
+    </a>
+
+    <a href="{{ url_for('favourites') }}" class="btn">
+        ⭐ Favourite Routes
+    </a>
+
+</div>
+
+{% endblock %}

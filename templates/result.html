@@ -1,0 +1,204 @@
+{% extends "base.html" %}
+
+{% block title %}
+Journey Result | Smart Commute & Traffic Planner
+{% endblock %}
+
+{% block content %}
+
+<div class="page-title">
+    <h1>🚗 Journey Summary</h1>
+    <p>Your personalized commute report.</p>
+</div>
+
+<!-- ================= ROUTE SUMMARY ================= -->
+
+<div class="card">
+
+    <h2>🗺 Route Summary</h2>
+
+    <table class="info-table">
+
+        <tr>
+            <th>Source</th>
+            <td>{{ source }}</td>
+        </tr>
+
+        <tr>
+            <th>Destination</th>
+            <td>{{ destination }}</td>
+        </tr>
+
+        <tr>
+            <th>Distance</th>
+            <td>{{ distance }}</td>
+        </tr>
+
+        <tr>
+            <th>Estimated Travel Time</th>
+            <td>{{ travel_time }}</td>
+        </tr>
+
+    </table>
+
+</div>
+
+<!-- ================= WEATHER ================= -->
+
+<div class="card">
+
+    <h2>🌦 Weather Information</h2>
+
+    <table class="info-table">
+
+        <tr>
+            <th>Temperature</th>
+            <td>{{ weather.temperature }} °C</td>
+        </tr>
+
+        <tr>
+            <th>Condition</th>
+            <td>{{ weather.condition }}</td>
+        </tr>
+
+        <tr>
+            <th>Humidity</th>
+            <td>{{ weather.humidity }} %</td>
+        </tr>
+
+        <tr>
+            <th>Wind Speed</th>
+            <td>{{ weather.wind_speed }} km/h</td>
+        </tr>
+
+        <tr>
+            <th>Visibility</th>
+            <td>{{ weather.visibility }} km</td>
+        </tr>
+
+    </table>
+
+</div>
+
+<!-- ================= TRAFFIC ================= -->
+
+<div class="card">
+
+    <h2>🚦 Traffic Estimation</h2>
+
+    <table class="info-table">
+
+        <tr>
+            <th>Traffic Level</th>
+            <td>{{ traffic.congestion }}</td>
+        </tr>
+
+        <tr>
+            <th>Estimated Delay</th>
+            <td>{{ traffic.delay }}</td>
+        </tr>
+
+        <tr>
+            <th>Peak Hour</th>
+            <td>{{ traffic.travel_time }}</td>
+        </tr>
+
+    </table>
+
+</div>
+
+<!-- ================= FUEL ================= -->
+
+<div class="card">
+
+    <h2>⛽ Fuel Cost</h2>
+
+    <table class="info-table">
+
+        <tr>
+            <th>Vehicle Mileage</th>
+            <td>{{ vehicle_mileage }} km/L</td>
+        </tr>
+
+        <tr>
+            <th>Fuel Price</th>
+            <td>₹ {{ fuel_price }}/L</td>
+        </tr>
+
+        <tr>
+            <th>Fuel Required</th>
+            <td>{{ fuel_required }} L</td>
+        </tr>
+
+        <tr>
+            <th>Estimated Cost</th>
+            <td>₹ {{ trip_cost }}</td>
+        </tr>
+
+    </table>
+
+</div>
+
+<!-- ================= AI ASSISTANT ================= -->
+
+<div class="card">
+
+    <h2>🤖 AI Commute Assistant</h2>
+
+    <div class="ai-box">
+
+        <h3>🕒 Best Departure</h3>
+        <p>{{ ai_advice.departure }}</p>
+
+        <h3>🛡 Safety Advice</h3>
+        <p>{{ ai_advice.safety }}</p>
+
+        <h3>🎒 Packing Suggestions</h3>
+        <p>{{ ai_advice.packing }}</p>
+
+        <h3>💡 Travel Tips</h3>
+
+        <ul>
+
+        {% for tip in ai_advice.tips %}
+
+        <li>{{ tip }}</li>
+
+        {% endfor %}
+
+        </ul>
+
+    </div>
+
+</div>
+
+<!-- ================= ACTION BUTTONS ================= -->
+
+<div class="button-group">
+
+    <form action="{{ url_for('add_favourites') }}" method="POST">
+
+        <input type="hidden" name="source" value="{{ source }}">
+        <input type="hidden" name="destination" value="{{ destination }}">
+
+        <button type="submit" class="btn">
+            ⭐ Save as Favourite
+        </button>
+
+    </form>
+
+    <a href="{{ url_for('dashboard') }}" class="btn">
+        📊 Dashboard
+    </a>
+
+    <a href="{{ url_for('history') }}" class="btn">
+        📜 History
+    </a>
+
+    <a href="{{ url_for('home') }}" class="btn">
+        🔄 Plan Another Journey
+    </a>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home | Smart Commute & Traffic Planner
+{% endblock %}
+
+{% block content %}
+
+<!-- ================= HERO SECTION ================= -->
+
+<section class="hero">
+
+    <h1>🚗 Smart Commute & Traffic Planner</h1>
+
+    <p class="tagline">
+        Plan smarter. Travel safer. Save time.
+    </p>
+
+    <p class="description">
+        Get weather updates, estimate traffic, calculate fuel costs,
+        and receive AI-powered travel recommendations for your daily commute.
+    </p>
+
+</section>
+
+<!-- ================= JOURNEY FORM ================= -->
+
+<section class="planner-card">
+
+    <h2>Plan Your Journey</h2>
+
+    <form action="{{ url_for('plan_journey') }}" method="POST">
+        
+        <div class="form-group">
+            <label for="source">📍 Source</label>
+            <input
+                type="text"
+                id="source"
+                name="source"
+                placeholder="Enter starting location"
+                required>
+        </div>
+
+        <div class="form-group">
+            <label for="destination">🎯 Destination</label>
+            <input
+                type="text"
+                id="destination"
+                name="destination"
+                placeholder="Enter destination"
+                required>
+        </div>
+
+        <div class="form-group">
+            <label for="mileage">⛽ Vehicle Mileage (km/L)</label>
+            <input
+                type="number"
+                id="mileage"
+                name="mileage"
+                step="0.1"
+                min="1"
+                placeholder="e.g. 18"
+                required>
+        </div>
+
+        <div class="form-group">
+            <label for="fuel_price">💰 Fuel Price (₹/L)</label>
+            <input
+                type="number"
+                id="fuel_price"
+                name="fuel_price"
+                step="0.01"
+                min="1"
+                placeholder="e.g. 105"
+                required>
+        </div>
+
+        <button type="submit" class="btn">
+            🚀 Plan Journey
+        </button>
+
+    </form>
+
+</section>
+
+<!-- ================= FEATURES ================= -->
+
+<section class="features">
+
+    <h2>Features</h2>
+
+    <div class="feature-grid">
+
+        <div class="feature-card">
+            <h3>🌦 Live Weather</h3>
+            <p>Current weather conditions for your destination.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>🚦 Traffic Estimation</h3>
+            <p>Estimate traffic based on distance, weather, and peak hours.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>⛽ Fuel Cost</h3>
+            <p>Estimate fuel usage and trip cost before you travel.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>🤖 AI Travel Assistant</h3>
+            <p>Receive travel tips, safety advice, and packing suggestions.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+
+<section class="how-it-works">
+
+    <h2>How It Works</h2>
+
+    <div class="steps">
+
+        <div class="step">
+            <h3>1️⃣ Enter Journey Details</h3>
+            <p>Provide your source, destination, mileage, and fuel price.</p>
+        </div>
+
+        <div class="step">
+            <h3>2️⃣ Analyze Conditions</h3>
+            <p>The system gathers weather information and estimates traffic.</p>
+        </div>
+
+        <div class="step">
+            <h3>3️⃣ Get Smart Recommendations</h3>
+            <p>Receive travel insights, estimated cost, and AI suggestions.</p>
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

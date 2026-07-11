@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+{% block title %}
+Favourite Routes | Smart Commute & Traffic Planner
+{% endblock %}
+
+{% block content %}
+
+<div class="page-title">
+    <h1>⭐ Favourite Routes</h1>
+    <p>Your saved routes for quick journey planning.</p>
+</div>
+
+<!-- ================= FAVOURITE ROUTES ================= -->
+
+{% if favourites %}
+
+<table class="history-table">
+
+    <thead>
+
+        <tr>
+            <th>Route Name</th>
+            <th>Source</th>
+            <th>Destination</th>
+            <th>Actions</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        {% for route in favourites %}
+
+        <tr>
+
+            <td>{{ route.name }}</td>
+
+            <td>{{ route.source }}</td>
+
+            <td>{{ route.destination }}</td>
+
+            <td>
+
+                <!-- Plan Journey -->
+
+                <form action="{{ url_for('repeat_favourites') }}" method="POST" style="display:inline;">
+
+                    <input type="hidden" name="source" value="{{ route.source }}">
+                    <input type="hidden" name="destination" value="{{ route.destination }}">
+
+                    <button type="submit" class="btn-small">
+                        🚗 Plan Journey
+                    </button>
+
+                </form>
+
+                <!-- Remove Favourite -->
+
+                <form action="{{ url_for('remove_favourite') }}" method="POST" style="display:inline;">
+
+                    <input type="hidden" name="index" value="{{ loop.index0 }}">
+
+                    <button type="submit" class="btn-small delete-btn">
+                        ❌ Remove
+                    </button>
+
+                </form>
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% else %}
+
+<div class="card">
+
+    <h2>No Favourite Routes</h2>
+
+    <p>
+        You haven't saved any favourite routes yet.
+    </p>
+
+    <a href="{{ url_for('home') }}" class="btn">
+        🚗 Plan a Journey
+    </a>
+
+</div>
+
+{% endif %}
+
+<!-- ================= QUICK ACTIONS ================= -->
+
+<div class="button-group">
+
+    <a href="{{ url_for('home') }}" class="btn">
+        🏠 Home
+    </a>
+
+    <a href="{{ url_for('dashboard') }}" class="btn">
+        📊 Dashboard
+    </a>
+
+    <a href="{{ url_for('history') }}" class="btn">
+        📜 History
+    </a>
+
+</div>
+
+{% endblock %}

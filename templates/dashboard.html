@@ -1,0 +1,184 @@
+{% extends "base.html" %}
+
+{% block title %}
+Dashboard | Smart Commute & Traffic Planner
+{% endblock %}
+
+{% block content %}
+
+<div class="page-title">
+    <h1>📊 Dashboard</h1>
+    <p>Overview of your commuting activity.</p>
+</div>
+
+<!-- ================= TODAY'S WEATHER ================= -->
+
+<div class="card">
+
+    <h2>🌤 Today's Weather</h2>
+
+    {% if weather %}
+
+    <table class="info-table">
+
+        <tr>
+            <th>Temperature</th>
+            <td>{{ weather.temperature }} °C</td>
+        </tr>
+
+        <tr>
+            <th>Condition</th>
+            <td>{{ weather.condition }}</td>
+        </tr>
+
+        <tr>
+            <th>Humidity</th>
+            <td>{{ weather.humidity }} %</td>
+        </tr>
+
+        <tr>
+            <th>Wind Speed</th>
+            <td>{{ weather.wind_speed }} km/h</td>
+        </tr>
+
+    </table>
+
+    {% else %}
+
+    <p>Weather information is not available.</p>
+
+    {% endif %}
+
+</div>
+
+<!-- ================= QUICK STATISTICS ================= -->
+
+<div class="card">
+
+    <h2>📈 Commute Statistics</h2>
+
+    <table class="info-table">
+
+        <tr>
+            <th>Total Trips</th>
+            <td>{{ stats.total_trips }}</td>
+        </tr>
+
+        <tr>
+            <th>Total Distance</th>
+            <td>{{ stats.total_distance }} km</td>
+        </tr>
+
+        <tr>
+            <th>Average Commute Time</th>
+            <td>{{ stats.average_time }}</td>
+        </tr>
+
+        <tr>
+            <th>Total Fuel Cost</th>
+            <td>₹ {{ stats.total_cost }}</td>
+        </tr>
+
+        <tr>
+            <th>Most Visited Destination</th>
+            <td>{{ stats.most_visited }}</td>
+        </tr>
+
+    </table>
+
+</div>
+
+<!-- ================= RECENT TRIPS ================= -->
+
+<div class="card">
+
+    <h2>🕒 Recent Trips</h2>
+
+    {% if recent_trips %}
+
+    <table class="history-table">
+
+        <thead>
+
+            <tr>
+                <th>Date</th>
+                <th>Source</th>
+                <th>Destination</th>
+                <th>Distance</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+        {% for trip in recent_trips %}
+
+            <tr>
+
+                <td>{{ trip.date }}</td>
+                <td>{{ trip.source }}</td>
+                <td>{{ trip.destination }}</td>
+                <td>{{ trip.distance }}</td>
+
+            </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+    {% else %}
+
+    <p>No trips available.</p>
+
+    {% endif %}
+
+</div>
+
+<!-- ================= AI TIP ================= -->
+
+<div class="card">
+
+    <h2>🤖 AI Travel Tip</h2>
+
+    <div class="ai-box">
+        {% if ai_tip %}
+        
+        <p>{{ ai_tip }}</p>
+
+        {% else %}
+
+        <p>AI travel tip is not available at the moment.</p>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+<!-- ================= QUICK ACTIONS ================= -->
+
+<div class="card">
+
+    <h2>⚡ Quick Actions</h2>
+
+    <div class="button-group">
+
+        <a href="{{ url_for('home') }}" class="btn">
+            🚗 Plan Journey
+        </a>
+
+        <a href="{{ url_for('history') }}" class="btn">
+            📜 View History
+        </a>
+
+        <a href="{{ url_for('favourites') }}" class="btn">
+            ⭐ Favourite Routes
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

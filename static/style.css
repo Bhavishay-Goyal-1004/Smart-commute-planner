@@ -1,0 +1,1482 @@
+/* ==========================================================
+   SMART COMMUTE & TRAFFIC PLANNER
+   STYLE.CSS
+   PART 1
+========================================================== */
+
+/* =========================
+   GOOGLE FONT
+========================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+    background:#f4f7fb;
+    color:#333;
+    line-height:1.6;
+
+}
+
+/* =========================
+   LINKS
+========================= */
+
+a{
+
+    text-decoration:none;
+    color:inherit;
+
+}
+
+ul{
+
+    list-style:none;
+
+}
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.container{
+
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    padding:30px 0;
+
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+header{
+
+    background:#1565c0;
+    color:#fff;
+    box-shadow:0 3px 8px rgba(0,0,0,.1);
+
+}
+
+.navbar{
+
+    width:90%;
+    max-width:1200px;
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 0;
+
+}
+
+.logo{
+
+    font-size:1.5rem;
+    font-weight:700;
+
+}
+
+.logo span{
+
+    margin-left:5px;
+
+}
+
+.nav-links{
+
+    display:flex;
+    gap:25px;
+
+}
+
+.nav-links a{
+
+    color:white;
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+.nav-links a:hover{
+
+    color:#ffe082;
+
+}
+
+/* =========================
+   PAGE TITLE
+========================= */
+
+.page-title{
+
+    text-align:center;
+    margin-bottom:35px;
+
+}
+
+.page-title h1{
+
+    color:#1565c0;
+    font-size:2.2rem;
+
+}
+
+.page-title p{
+
+    color:#666;
+
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+
+    text-align:center;
+
+    margin-bottom:50px;
+
+}
+
+.hero h1{
+
+    font-size:2.8rem;
+
+    color:#1565c0;
+
+    margin-bottom:15px;
+
+}
+
+.tagline{
+
+    font-size:1.3rem;
+
+    font-weight:600;
+
+    color:#444;
+
+}
+
+.description{
+
+    max-width:700px;
+
+    margin:20px auto;
+
+    color:#666;
+
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card{
+
+    background:white;
+
+    padding:25px;
+
+    margin-bottom:30px;
+
+    border-radius:12px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+}
+
+.card h2{
+
+    color:#1565c0;
+
+    margin-bottom:20px;
+
+}
+
+/* =========================
+   JOURNEY FORM
+========================= */
+
+.planner-card{
+
+    background:white;
+
+    max-width:650px;
+
+    margin:40px auto;
+
+    padding:35px;
+
+    border-radius:15px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.planner-card h2{
+
+    text-align:center;
+
+    color:#1565c0;
+
+    margin-bottom:25px;
+
+}
+
+.form-group{
+
+    margin-bottom:20px;
+
+}
+
+.form-group label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+}
+
+.form-group input{
+
+    width:100%;
+
+    padding:12px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+    font-size:16px;
+
+    transition:.3s;
+
+}
+
+.form-group input:focus{
+
+    border-color:#1565c0;
+
+    outline:none;
+
+    box-shadow:0 0 8px rgba(21,101,192,.2);
+
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn{
+
+    display:inline-block;
+
+    background:#1565c0;
+
+    color:white;
+
+    padding:12px 24px;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.btn:hover{
+
+    background:#0d47a1;
+
+}
+
+.btn-small{
+
+    background:#1565c0;
+
+    color:white;
+
+    border:none;
+
+    padding:8px 14px;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.btn-small:hover{
+
+    background:#0d47a1;
+
+}
+
+.delete-btn{
+
+    background:#d32f2f;
+
+}
+
+.delete-btn:hover{
+
+    background:#b71c1c;
+
+}
+
+/* =========================
+   BUTTON GROUP
+========================= */
+
+.button-group{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+    margin:35px 0;
+
+}
+
+/* =========================
+   FEATURES
+========================= */
+
+.features{
+
+    margin-top:50px;
+
+}
+
+.features h2{
+
+    text-align:center;
+
+    color:#1565c0;
+
+    margin-bottom:30px;
+
+}
+
+.feature-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:20px;
+
+}
+
+.feature-card{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:12px;
+
+    text-align:center;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.feature-card:hover{
+
+    transform:translateY(-6px);
+
+}
+
+.feature-card h3{
+
+    color:#1565c0;
+
+    margin-bottom:10px;
+
+}
+
+/* =========================
+   HOW IT WORKS
+========================= */
+
+.how-it-works{
+
+    margin-top:60px;
+
+}
+
+.how-it-works h2{
+
+    text-align:center;
+
+    color:#1565c0;
+
+    margin-bottom:35px;
+
+}
+
+.steps{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:25px;
+
+}
+
+.step{
+
+    background:white;
+
+    padding:25px;
+
+    text-align:center;
+
+    border-radius:12px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+}
+
+.step h3{
+
+    color:#1565c0;
+
+    margin-bottom:12px;
+
+}
+
+/* =========================
+   FLASH MESSAGE
+========================= */
+
+.flash-container{
+
+    width:90%;
+
+    max-width:1000px;
+
+    margin:20px auto;
+
+}
+
+.flash{
+
+    padding:15px;
+
+    border-radius:8px;
+
+    margin-bottom:10px;
+
+}
+
+.flash.success{
+
+    background:#d4edda;
+
+    color:#155724;
+
+}
+
+.flash.error{
+
+    background:#f8d7da;
+
+    color:#721c24;
+
+}
+
+.flash.warning{
+
+    background:#fff3cd;
+
+    color:#856404;
+
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+
+    background:#1565c0;
+
+    color:white;
+
+    text-align:center;
+
+    padding:25px;
+
+    margin-top:50px;
+
+}
+
+footer p{
+
+    margin:5px 0;
+
+}
+
+/* ==========================================================
+   SMART COMMUTE & TRAFFIC PLANNER
+   STYLE.CSS
+   PART 2
+========================================================== */
+
+/* =========================
+   INFO TABLE
+========================= */
+
+.info-table{
+
+    width:100%;
+    border-collapse:collapse;
+
+}
+
+.info-table th,
+.info-table td{
+
+    padding:14px;
+    border-bottom:1px solid #ddd;
+    text-align:left;
+
+}
+
+.info-table th{
+
+    width:35%;
+    background:#e3f2fd;
+    color:#1565c0;
+    font-weight:600;
+
+}
+
+.info-table tr:nth-child(even){
+
+    background:#fafafa;
+
+}
+
+.info-table tr:hover{
+
+    background:#f1f8ff;
+
+}
+
+/* =========================
+   HISTORY TABLE
+========================= */
+
+.history-table{
+
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    border-radius:10px;
+    overflow:hidden;
+
+}
+
+.history-table thead{
+
+    background:#1565c0;
+    color:white;
+
+}
+
+.history-table th{
+
+    padding:16px;
+    text-align:center;
+
+}
+
+.history-table td{
+
+    padding:14px;
+    text-align:center;
+    border-bottom:1px solid #eee;
+
+}
+
+.history-table tbody tr:nth-child(even){
+
+    background:#fafafa;
+
+}
+
+.history-table tbody tr:hover{
+
+    background:#f5f9ff;
+
+}
+
+/* =========================
+   AI RESPONSE BOX
+========================= */
+
+.ai-box{
+
+    background:#f8fbff;
+    border-left:5px solid #1565c0;
+    padding:20px;
+    border-radius:8px;
+
+}
+
+.ai-box pre{
+
+    white-space:pre-wrap;
+    word-wrap:break-word;
+    font-family:'Poppins',sans-serif;
+    line-height:1.8;
+    font-size:15px;
+
+}
+
+.ai-box p{
+
+    line-height:1.8;
+
+}
+
+/* =========================
+   NOTIFICATIONS
+========================= */
+
+.card ul{
+
+    margin-left:20px;
+
+}
+
+.card li{
+
+    margin-bottom:12px;
+
+}
+
+/* =========================
+   QUICK STATISTICS
+========================= */
+
+.stats-grid{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+
+}
+
+.stat-card{
+
+    background:white;
+    border-radius:12px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+}
+
+.stat-card h3{
+
+    color:#1565c0;
+    margin-bottom:10px;
+
+}
+
+.stat-number{
+
+    font-size:2rem;
+    font-weight:700;
+    color:#0d47a1;
+
+}
+
+/* =========================
+   WEATHER CARD
+========================= */
+
+.weather-card{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:20px;
+
+}
+
+.weather-details{
+
+    flex:1;
+
+}
+
+.weather-icon{
+
+    font-size:70px;
+    color:#ff9800;
+
+}
+
+/* =========================
+   DASHBOARD CARDS
+========================= */
+
+.dashboard-grid{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:25px;
+
+}
+
+/* =========================
+   RECENT TRIPS
+========================= */
+
+.recent-trip{
+
+    padding:15px;
+    border-bottom:1px solid #eee;
+
+}
+
+.recent-trip:last-child{
+
+    border-bottom:none;
+
+}
+
+.recent-trip strong{
+
+    color:#1565c0;
+
+}
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.empty-state{
+
+    text-align:center;
+    padding:60px 20px;
+
+}
+
+.empty-state h2{
+
+    color:#1565c0;
+    margin-bottom:15px;
+
+}
+
+.empty-state p{
+
+    color:#666;
+    margin-bottom:20px;
+
+}
+
+/* =========================
+   TABLE ACTION BUTTONS
+========================= */
+
+.history-table form{
+
+    display:inline-block;
+    margin:3px;
+
+}
+
+/* =========================
+   INPUT PLACEHOLDER
+========================= */
+
+input::placeholder{
+
+    color:#999;
+
+}
+
+/* =========================
+   INPUT NUMBER ARROWS
+========================= */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+
+    -webkit-appearance:none;
+    margin:0;
+
+}
+
+input[type=number]{
+
+    appearance:textfield;
+    -moz-appearance:textfield;
+
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#eeeeee;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#1565c0;
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#0d47a1;
+
+}
+
+/* =========================
+   SECTION SPACING
+========================= */
+
+section{
+
+    margin-bottom:40px;
+
+}
+
+/* =========================
+   CARD HOVER EFFECT
+========================= */
+
+.card{
+
+    transition:.3s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+
+}
+
+/* =========================
+   TABLE RESPONSIVE WRAPPER
+========================= */
+
+.table-wrapper{
+
+    overflow-x:auto;
+
+}
+
+/* =========================
+   SUCCESS TEXT
+========================= */
+
+.success{
+
+    color:#2e7d32;
+    font-weight:600;
+
+}
+
+/* =========================
+   WARNING TEXT
+========================= */
+
+.warning{
+
+    color:#ef6c00;
+    font-weight:600;
+
+}
+
+/* =========================
+   DANGER TEXT
+========================= */
+
+.danger{
+
+    color:#c62828;
+    font-weight:600;
+
+}
+
+/* =========================
+   SMALL TEXT
+========================= */
+
+.small{
+
+    font-size:14px;
+    color:#666;
+
+}
+
+/* =========================
+   BADGES
+========================= */
+
+.badge{
+
+    display:inline-block;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:600;
+
+}
+
+.badge.low{
+
+    background:#c8e6c9;
+    color:#2e7d32;
+
+}
+
+.badge.moderate{
+
+    background:#fff3cd;
+    color:#856404;
+
+}
+
+.badge.heavy{
+
+    background:#ffcdd2;
+    color:#c62828;
+
+}
+
+/* =========================
+   HORIZONTAL RULE
+========================= */
+
+hr{
+
+    border:none;
+    border-top:1px solid #ddd;
+    margin:25px 0;
+
+}
+
+/* =========================
+   IMAGE
+========================= */
+
+img{
+
+    max-width:100%;
+    display:block;
+
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.logo img{
+
+    height:40px;
+    width:auto;
+
+}
+
+/* ==========================================================
+   SMART COMMUTE & TRAFFIC PLANNER
+   STYLE.CSS
+   PART 3
+========================================================== */
+
+
+/* =========================
+   TEXT UTILITIES
+========================= */
+
+.text-center{
+    text-align:center;
+}
+
+.text-left{
+    text-align:left;
+}
+
+.text-right{
+    text-align:right;
+}
+
+.bold{
+    font-weight:600;
+}
+
+.mt-1{
+    margin-top:10px;
+}
+
+.mt-2{
+    margin-top:20px;
+}
+
+.mt-3{
+    margin-top:30px;
+}
+
+.mb-1{
+    margin-bottom:10px;
+}
+
+.mb-2{
+    margin-bottom:20px;
+}
+
+.mb-3{
+    margin-bottom:30px;
+}
+
+
+/* =========================
+   FLEX UTILITIES
+========================= */
+
+.flex{
+    display:flex;
+}
+
+.flex-center{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.flex-between{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.flex-column{
+    display:flex;
+    flex-direction:column;
+}
+
+.gap-10{
+    gap:10px;
+}
+
+.gap-20{
+    gap:20px;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes slideDown{
+
+    from{
+        opacity:0;
+        transform:translateY(-20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+.hero,
+.card,
+.planner-card,
+.feature-card,
+.step{
+
+    animation:fadeIn .6s ease;
+
+}
+
+header{
+
+    animation:slideDown .5s ease;
+
+}
+
+
+/* =========================
+   BUTTON EFFECTS
+========================= */
+
+.btn,
+.btn-small{
+
+    transition:all .3s ease;
+
+}
+
+.btn:hover,
+.btn-small:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.btn:active,
+.btn-small:active{
+
+    transform:scale(.97);
+
+}
+
+
+/* =========================
+   TABLE ROW ANIMATION
+========================= */
+
+.history-table tbody tr{
+
+    transition:.25s;
+
+}
+
+
+/* =========================
+   FORM STYLING
+========================= */
+
+input{
+
+    transition:.3s;
+
+}
+
+input:focus{
+
+    transform:scale(1.01);
+
+}
+
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media(max-width:992px){
+
+    .container{
+
+        width:95%;
+
+    }
+
+    .navbar{
+
+        width:95%;
+
+    }
+
+    .hero h1{
+
+        font-size:2.3rem;
+
+    }
+
+    .feature-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .steps{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:768px){
+
+    .navbar{
+
+        flex-direction:column;
+        gap:15px;
+
+    }
+
+    .nav-links{
+
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:15px;
+
+    }
+
+    .hero h1{
+
+        font-size:2rem;
+
+    }
+
+    .tagline{
+
+        font-size:1.1rem;
+
+    }
+
+    .planner-card{
+
+        padding:25px;
+
+    }
+
+    .button-group{
+
+        flex-direction:column;
+        align-items:center;
+
+    }
+
+    .btn{
+
+        width:100%;
+        text-align:center;
+
+    }
+
+    .history-table{
+
+        display:block;
+        overflow-x:auto;
+        white-space:nowrap;
+
+    }
+
+    .info-table{
+
+        display:block;
+        overflow-x:auto;
+
+    }
+
+    .dashboard-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .feature-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .steps{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:480px){
+
+    .hero h1{
+
+        font-size:1.7rem;
+
+    }
+
+    .page-title h1{
+
+        font-size:1.8rem;
+
+    }
+
+    .planner-card{
+
+        padding:20px;
+
+    }
+
+    .card{
+
+        padding:18px;
+
+    }
+
+    .btn{
+
+        font-size:15px;
+
+        padding:12px;
+
+    }
+
+    .btn-small{
+
+        font-size:13px;
+
+        padding:8px 10px;
+
+    }
+
+    .logo{
+
+        font-size:1.2rem;
+
+    }
+
+    footer{
+
+        font-size:14px;
+
+    }
+
+}
+
+
+/* =========================
+   PRINT
+========================= */
+
+@media print{
+
+    header,
+    footer,
+    .button-group{
+
+        display:none;
+
+    }
+
+    body{
+
+        background:white;
+
+    }
+
+    .card{
+
+        box-shadow:none;
+        border:1px solid #ddd;
+
+    }
+
+}
+
+
+/* =========================
+   SELECTION COLOR
+========================= */
+
+::selection{
+
+    background:#1565c0;
+    color:white;
+
+}
+
+
+/* =========================
+   FOCUS ACCESSIBILITY
+========================= */
+
+button:focus,
+a:focus,
+input:focus{
+
+    outline:2px solid #1565c0;
+    outline-offset:2px;
+
+}

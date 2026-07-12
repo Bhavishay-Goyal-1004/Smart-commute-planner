@@ -1,6 +1,7 @@
 import requests
 from config import TRAFFIC_API_KEY
 from datetime import datetime
+from zoneinfo import ZoneInfo
 
 BASE_URL = "https://api.tomtom.com/routing/1/calculateRoute"
 
@@ -57,7 +58,7 @@ def get_peak_hour(congestion):
     Returns peak hour status based on current time and traffic congestion.
     """
 
-    now = datetime.now()
+    now = datetime.now(ZoneInfo("Asia/Kolkata"))
 
     hour = now.hour
 

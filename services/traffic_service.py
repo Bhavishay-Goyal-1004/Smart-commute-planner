@@ -64,7 +64,7 @@ def get_peak_hour(congestion):
     if 7 <= hour < 11:
         period = "🌅 Morning Peak"
 
-    elif 12 <= hour < 16:
+    elif 11 <= hour < 17:
         period = "☀️ Afternoon Peak"
 
     elif 17 <= hour < 21:

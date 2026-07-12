@@ -102,8 +102,6 @@ def dashboard():
     
     stats = statistics()
 
-    weather = None
-
     if stats["common_source"]:
         try:
             coord = get_coordinates(stats["common_source"])

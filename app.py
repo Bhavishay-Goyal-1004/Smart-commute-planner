@@ -109,6 +109,8 @@ def dashboard():
     
     stats = statistics()
 
+    weather = None
+
     if stats["common_source"]:
         try:
             coord = get_coordinates(stats["common_source"])
@@ -117,7 +119,11 @@ def dashboard():
             weather = None
 
     history = load_history()
-    recent_trips = history[-5:][::-1]
+
+    recent_trips = []
+
+    if history:
+        recent_trips = history[-5:][::-1]
     
     ai_tip = None
 

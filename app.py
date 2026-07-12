@@ -106,7 +106,8 @@ def dashboard():
 
     if stats["common_source"]:
         try:
-            weather = get_weather(stats["common_source"])
+            coord = get_coordinates(stats["common_source"])
+            weather = get_weather(stats["common_source"], coord)
         except Exception:
             weather = None
 

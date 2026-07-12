@@ -84,12 +84,19 @@ def generate_trip(source,destination,vehicle_mileage,fuel_price):
         )
 
 
+    except ValueError:
+        return render_template(
+            "404.html",
+            title="Invalid Source or Destination",
+            message="We couldn't find the location you entered. Please check the spelling or try a more specific place name."
+        ), 404
+
     except Exception as e:
         traceback.print_exc()
 
         return render_template(
             "index.html",
-            error=str(e)
+            error="Something went wrong. Please try again."
         )
 
 @app.route("/")
@@ -298,6 +305,15 @@ def remove_favourite():
     save_favourites(favourites)
 
     return redirect("/favourites")
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template(
+        "404.html",
+        title="Page not found",
+        message="The page you're looking for doesn't exist. Let's get you back to planning your commute."
+    ), 404
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0",port=8080)

@@ -57,7 +57,9 @@ def get_peak_hour(congestion):
     Returns peak hour status based on current time and traffic congestion.
     """
 
-    hour = datetime.now().hour
+    now = datetime.now()
+
+    hour = now.hour
 
     if 7 <= hour < 11:
         period = "🌅 Morning Peak"

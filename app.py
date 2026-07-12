@@ -25,6 +25,8 @@ def generate_trip(source,destination,vehicle_mileage,fuel_price):
 
         traffic = get_traffic(start_coord,end_coord)
 
+        peak_hour = get_peak_hour(traffic["congestion"])
+
         weather_data = get_weather(destination,end_coord)
 
         fuel_data = fuel(distance,fuel_price,vehicle_mileage)
@@ -49,6 +51,7 @@ def generate_trip(source,destination,vehicle_mileage,fuel_price):
         "traffic_travel_time": traffic['traffic_time'],
         "delay": traffic['delay'],
         "congestion": traffic['congestion'],
+        "peak_hour" : peak_hour,
         "weather": f"{weather_data['condition']}, {weather_data['temperature']}°C",
         "trip_cost": trip_cost,
         "ai_advice": ai_advice,
@@ -71,6 +74,7 @@ def generate_trip(source,destination,vehicle_mileage,fuel_price):
         distance=distance,
         travel_time=travel_time,
         traffic=traffic,
+        peak_hour=peak_hour,
         weather=weather_data,
         vehicle_mileage=vehicle_mileage,
         fuel_price=fuel_price,
@@ -152,6 +156,13 @@ def plan_journey():
                 "index.html",
                 error=f"Please enter {name}."
             )
+    
+    if source == destination:
+        return render_template(
+                "index.html",
+                error=f"Source & Destination cannot be same."
+            )
+
         
     try:
         vehicle_mileage = float(vehicle_mileage)

@@ -1,5 +1,6 @@
 import requests
 from config import TRAFFIC_API_KEY
+from datetime import datetime
 
 BASE_URL = "https://api.tomtom.com/routing/1/calculateRoute"
 
@@ -50,3 +51,24 @@ def get_traffic(start, end):
         "delay": delay,
         "congestion": congestion
     }
+
+def get_peak_hour(congestion):
+    """
+    Returns peak hour status based on current time and traffic congestion.
+    """
+
+    hour = datetime.now().hour
+
+    if 7 <= hour < 10:
+        period = "🌅 Morning Peak"
+
+    elif 17 <= hour < 21:
+        period = "🌇 Evening Peak"
+
+    elif 21 <= hour or hour < 7:
+        period = "🌙 Night"
+
+    else:
+        period = "☀️ Off Peak"
+
+    return f"{period} ({congestion} Traffic)"

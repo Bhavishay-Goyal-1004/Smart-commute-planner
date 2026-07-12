@@ -1,6 +1,7 @@
 from config import GEMINI_API_KEY
 from google import genai
 import json
+from datetime import datetime
 
 API_KEY = GEMINI_API_KEY
 
@@ -21,6 +22,7 @@ Commute Details:
 - Source: {source}
 - Destination: {destination}
 - Distance: {distance}
+- Current Time(hour): {hour}
 - Estimated Travel Time: {travel_time}
 - Weather: {weather}
 - Temperature: {temperature}°C
@@ -66,15 +68,19 @@ Rules:
 - Do not repeat the input values.
 - Do not make assumptions beyond the provided data.
 - If conditions are normal, reassure the user that the trip looks comfortable.
+- Give all instruction by keeping the current time in mind.
 """
 
 
 def get_info(source, destination, weather_data, distance,fuel_cost, traffic, travel_time):
 
+    hour = datetime.now().hour
+
     prompt = PLAN_PROMPT.format(
         source=source,
         destination=destination,
         distance=distance,
+        hour=hour,
         travel_time=travel_time,
         weather=weather_data["condition"],
         temperature=weather_data["temperature"],
